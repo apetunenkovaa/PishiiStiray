@@ -1,0 +1,102 @@
+﻿<Window x:Class="YP_MDK_01_session_one.window.WindowWorkBasket"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YP_MDK_01_session_one.window"
+        mc:Ignorable="d"
+        Title="WindowWorkBasket" Height="450" Width="800">
+    <Window.Resources>
+        <BitmapImage x:Key="NoImage" UriSource="/res/picture.png"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Корзина" FontSize="30" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" Name="tb_FIO"/>
+
+        <ListView Name="ListProd" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="1" CornerRadius="5" BorderThickness="0.5" BorderBrush="Black" >
+                        <Grid Name="gridM">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{Binding product.Photo, TargetNullValue={StaticResource NoImage}}" Width="120" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding product.Name}" FontWeight="Bold" />
+                                <TextBlock Text="{Binding product.Description}" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding product.Manufact}" TextWrapping="Wrap" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Стоимость:"/>
+                                    <TextBlock Text="{Binding product.Price}" TextDecorations="Strikethrough"/>
+                                    <TextBlock Text="{Binding product.NewCost}" />
+                                </StackPanel>
+                                <TextBlock Text="{Binding product.Disc}"/>
+                            </StackPanel>
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Vertical" Grid.Row="0">
+                                    <TextBlock Text="Количество: "/>
+                                    <TextBox Name="tb_kolvo" Text="{Binding count}" Uid="{Binding product.ProductArticleNumber}" TextChanged="tb_kolvo_TextChanged" PreviewTextInput="tb_kolvo_PreviewTextInput" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1">
+                                    <Button Name="btn_Delete" Uid="{Binding product.ProductArticleNumber}" Content="Удалить" Click="btn_Delete_Click"  Template="{StaticResource ordinary_btn}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="tbSum"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="tbSumDiscount"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="4" Orientation="Vertical" HorizontalAlignment="Center" Margin="15 5 0 5">
+            <GroupBox Header="Пункт выдачи" FontFamily="Comic Sans MS">
+                <ComboBox Name="cbPickPoint"  Width="350"/>
+            </GroupBox>
+        </StackPanel>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Button Name="btn_Back" Content="Назад" Click="btn_Back_Click" Template="{StaticResource ordinary_btn}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Button Name="btn_Order" Content="Заказать" Click="btn_Order_Click" Template="{StaticResource ordinary_btn}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

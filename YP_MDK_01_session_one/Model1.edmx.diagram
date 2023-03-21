@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bee1344fa66543bb82acf62758e2a7f1" Name="Diagram1">
+        <EntityTypeShape EntityType="practic17Model.Order" Width="1.5" PointX="3" PointY="15.375" />
+        <EntityTypeShape EntityType="practic17Model.OrderStatus" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="practic17Model.OrederProduct" Width="1.5" PointX="5.25" PointY="2.25" />
+        <EntityTypeShape EntityType="practic17Model.PickupPoint" Width="1.5" PointX="0.75" PointY="23.125" />
+        <EntityTypeShape EntityType="practic17Model.Product" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="practic17Model.ProductCategory" Width="1.5" PointX="0.75" PointY="10.375" />
+        <EntityTypeShape EntityType="practic17Model.ProductManufacturer" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="practic17Model.ProductProvider" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="practic17Model.ProductUnit" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="practic17Model.Role" Width="1.5" PointX="1.5" PointY="20.25" />
+        <EntityTypeShape EntityType="practic17Model.Users" Width="1.5" PointX="0.75" PointY="15.625" />
+        <AssociationConnector Association="practic17Model.FK_Order_OrderStatus" />
+        <AssociationConnector Association="practic17Model.FK_Order_PickupPoint" />
+        <AssociationConnector Association="practic17Model.FK_Order_Users" />
+        <AssociationConnector Association="practic17Model.FK_OrederProduct_Order" />
+        <AssociationConnector Association="practic17Model.FK_OrederProduct_Product" />
+        <AssociationConnector Association="practic17Model.FK_Product_ProductCategory" />
+        <AssociationConnector Association="practic17Model.FK_Product_ProductManufacturer" />
+        <AssociationConnector Association="practic17Model.FK_Product_ProductProvider" />
+        <AssociationConnector Association="practic17Model.FK_Product_ProductUnit" />
+        <AssociationConnector Association="practic17Model.FK__Users__UserRole__403A8C7D" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
